@@ -1,0 +1,24 @@
+[user]
+	name = Matt Dee
+	email = mattdee123@gmail.com
+[core]
+	editor = vim
+	excludesfile = /Users/mattdee/.gitignore_global
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[alias]
+    url = !echo "$(git config --get remote.origin.url | sed s/.git$//)"
+    hub = !open "$(git url)"
+    cmp = !open "$(git url)/commit/$(git rev-parse HEAD)"
+    amend = commit --amend
+    b = branch
+[color]
+	ui = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
