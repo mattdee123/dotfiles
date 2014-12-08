@@ -56,10 +56,10 @@ ps1() {
   # echo $error
   DATE=`printf "\[$COLOR_GREEN\]%s " "[\\\\T]"`
   NAME=`printf "\[$COLOR_BROWN\]%s: " "\\\\u"`
-  DIR=`printf "\[$COLOR_PURPLE\]%s" "\\\\w"`
-  GIT=`printf "\[$COLOR_LIGHT_CYAN\]%s" "$(__git_ps1 ' %s')"`
-  EC=`if [ $error -ne 0 ]; then printf "\[$COLOR_RED\] [%s]" "$error"; fi`
-  NC=`printf "\[$COLOR_NC\] "`
+  DIR=`printf "\[$COLOR_PURPLE\]%s " "\\\\w"`
+  GIT=`printf "\[$COLOR_LIGHT_CYAN\]%s" "$(__git_ps1 '%s ')"`
+  EC=`if [ $error -ne 0 ]; then printf "\[$COLOR_RED\][%s] " "$error"; fi`
+  NC=`printf "\[$COLOR_NC\]"`
   export PS1="$DATE$NAME$DIR$GIT$EC$NC"
 
   # export PS1="$NAME$NC zzzzzzz"
