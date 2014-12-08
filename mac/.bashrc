@@ -48,7 +48,7 @@ export HISTCONTROL=ignoredups
 # ... and ignore same successive entries.
 export HISTCONTROL=ignoreboth
 
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+source ~/.gitprompt.sh
 export GIT_PS1_SHOWDIRTYSTATE="true"
 
 ps1() {
