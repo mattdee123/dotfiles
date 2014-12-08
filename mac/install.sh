@@ -26,6 +26,8 @@ do
     if [ $input = "y" ];
     then 
         if [ -f $link ]; then rm $link; fi;
+        mkdir -p $link
+        rm -r $link
         if ln -s $original $link;
         then
             echo "Linked $original to $link";
