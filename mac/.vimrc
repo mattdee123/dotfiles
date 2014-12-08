@@ -24,5 +24,4 @@ autocmd FileType html setlocal indentkeys=""
 :match ErrorMsg '\%>100v.\+'
 
 :highlight BadWS ctermbg=darkgreen
-:match BadWS /\s\+$/
-:match BadWS /\t/
+:match BadWS /\s\+$\|\t/
