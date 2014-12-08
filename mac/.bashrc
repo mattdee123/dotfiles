@@ -53,18 +53,20 @@ export GIT_PS1_SHOWDIRTYSTATE="true"
 
 ps1() {
   error="$?"
-  # slashes get cut in half because double quote, again for printf, again for PS1 parsing
-  DATE=`printf "$COLOR_GREEN[\\\\\\\\T] "`
-  NAME=`printf "$COLOR_BROWN\\\\\\\\u: "`
-  DIR=`printf "$COLOR_PURPLE\\\\\\\\w "`
-  GIT=`printf "$COLOR_LIGHT_CYAN%s" "$(__git_ps1 '%s')"`
-  EC=`if [ $error -ne 0 ]; then printf "$COLOR_RED [%s]" "$error"; fi`
-  NC=`printf "$COLOR_NC "`
+  # echo $error
+  DATE=`printf "\[$COLOR_GREEN\]%s " "[\\\\T]"`
+  NAME=`printf "\[$COLOR_BROWN\]%s: " "\\\\u"`
+  DIR=`printf "\[$COLOR_PURPLE\]%s" "\\\\w"`
+  GIT=`printf "\[$COLOR_LIGHT_CYAN\]%s" "$(__git_ps1 ' %s')"`
+  EC=`if [ $error -ne 0 ]; then printf "\[$COLOR_RED\] [%s]" "$error"; fi`
+  NC=`printf "\[$COLOR_NC\] "`
   export PS1="$DATE$NAME$DIR$GIT$EC$NC"
+
+  # export PS1="$NAME$NC zzzzzzz"
 }
 
 PROMPT_COMMAND=ps1
-export PS1=""
+export PS1=">> "
 export PS2='> '
 export PS3='#? '
 export PS4='+ '
