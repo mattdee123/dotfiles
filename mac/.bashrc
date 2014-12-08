@@ -53,10 +53,10 @@ export GIT_PS1_SHOWDIRTYSTATE="true"
 
 ps1() {
   error="$?"
-  # echo $error
-  DATE=`printf "$COLOR_GREEN[\T] "`
-  NAME=`printf "$COLOR_BROWN\u "`
-  DIR=`printf "$COLOR_PURPLE%s " "\w"`
+  # slashes get cut in half because double quote, again for printf, again for PS1 parsing
+  DATE=`printf "$COLOR_GREEN[\\\\\\\\T] "`
+  NAME=`printf "$COLOR_BROWN\\\\\\\\u: "`
+  DIR=`printf "$COLOR_PURPLE\\\\\\\\w "`
   GIT=`printf "$COLOR_LIGHT_CYAN%s" "$(__git_ps1 '%s')"`
   EC=`if [ $error -ne 0 ]; then printf "$COLOR_RED [%s]" "$error"; fi`
   NC=`printf "$COLOR_NC "`
