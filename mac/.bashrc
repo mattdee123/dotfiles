@@ -48,11 +48,23 @@ export HISTCONTROL=ignoredups
 # ... and ignore same successive entries.
 export HISTCONTROL=ignoreboth
 
-# After each command, update LINES and COLUMNS to reflect the current window size
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE="true"
-export PS1="\[${COLOR_GREEN}\][\T] \[${COLOR_BROWN}\]\u: \[${COLOR_PURPLE}\]\w\
-\[${COLOR_LIGHT_CYAN}\]\$(__git_ps1 \" %s\")\[${COLOR_NC}\] "
+
+ps1() {
+  error="$?"
+  # echo $error
+  DATE=`printf "$COLOR_GREEN[\T] "`
+  NAME=`printf "$COLOR_BROWN\u "`
+  DIR=`printf "$COLOR_PURPLE%s " "\w"`
+  GIT=`printf "$COLOR_LIGHT_CYAN%s" "$(__git_ps1 '%s')"`
+  EC=`if [ $error -ne 0 ]; then printf "$COLOR_RED [%s]" "$error"; fi`
+  NC=`printf "$COLOR_NC "`
+  export PS1="$DATE$NAME$DIR$GIT$EC$NC"
+}
+
+PROMPT_COMMAND=ps1
+export PS1=""
 export PS2='> '
 export PS3='#? '
 export PS4='+ '
