@@ -123,7 +123,7 @@ alias expand="cd \$(pwd -P)"
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
-if [ -f ~/.bashrc.local];
+if [ -f ~/.bashrc.local ];
 then
     source ~/.bashrc.local;
 fi
