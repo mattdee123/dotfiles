@@ -1,18 +1,7 @@
 export FCEDIT=vim
 export EDITOR=vim
-# Path
-# export PATH="/usr/local/bin:$PATH"
-# for i in `ls ~/bindirs`;do
-#    temp="$HOME""/bindirs/$i";
-#    if [ -e "$temp" ]; then
-#         if [ -h "$temp" ]; then
-#             export PATH="$PATH:`readlink $temp`";
-#         else
-#             export PATH="$PATH:~/bindirs/$i";
-#         fi;
-#    fi;
-# done
-# unset temp
+##### Path
+export PATH="/usr/local/bin:$PATH"
 
 ##### Colors
 export GREP_OPTIONS='--color=auto'
