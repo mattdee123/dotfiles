@@ -1,25 +1,25 @@
 export FCEDIT=vim
+export EDITOR=vim
 # Path
-export PATH="/usr/local/bin:$PATH"
-for i in `ls ~/bindirs`;do 
-   temp="$HOME""/bindirs/$i";
-   if [ -e "$temp" ]; then
-        if [ -h "$temp" ]; then 
-            export PATH="$PATH:`readlink $temp`";
-        else
-            export PATH="$PATH:~/bindirs/$i";
-        fi;
-   fi;
-done
-unset temp
+# export PATH="/usr/local/bin:$PATH"
+# for i in `ls ~/bindirs`;do
+#    temp="$HOME""/bindirs/$i";
+#    if [ -e "$temp" ]; then
+#         if [ -h "$temp" ]; then
+#             export PATH="$PATH:`readlink $temp`";
+#         else
+#             export PATH="$PATH:~/bindirs/$i";
+#         fi;
+#    fi;
+# done
+# unset temp
 
-# Colors ----------------------------------------------------------
+##### Colors
 export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
+export GREP_COLOR='1;32' #light green
 
 export CLICOLOR='1'
 
-# alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
 export LSCOLORS="gxDxFxdxCxExExhbadgxgx"
 
 # Setup some colors to use later in interactive shell or scripts
@@ -41,19 +41,25 @@ export COLOR_YELLOW='\e[1;33m'
 export COLOR_GRAY='\e[1;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 
-export HISTSIZE=10000000
+##### History
+export HISTSIZE=100000000
+export HISTCONTROL=ignoredups:erasedups
+export HISTFILESIZE=10000000
+shopt -s histappend
 
-# Don't put duplicate lines in the history.
-export HISTCONTROL=ignoredups
-# ... and ignore same successive entries.
-export HISTCONTROL=ignoreboth
-
-source ~/.gitprompt.sh
-export GIT_PS1_SHOWDIRTYSTATE="true"
+##### Prompt
+if [ -f ~/.gitprompt.sh ];
+then
+    #included by dotfile install script
+    source ~/.gitprompt.sh;
+    export GIT_PS1_SHOWDIRTYSTATE="true";
+else
+    __git_ps1() { true; };
+fi;
 
 ps1() {
   error="$?"
-  # echo $error
+  # 4x escape: 2x for in string, 2x for in printf
   DATE=`printf "\[$COLOR_GREEN\]%s " "[\\\\T]"`
   NAME=`printf "\[$COLOR_BROWN\]%s: " "\\\\u"`
   DIR=`printf "\[$COLOR_PURPLE\]%s " "\\\\w"`
@@ -61,8 +67,6 @@ ps1() {
   EC=`if [ $error -ne 0 ]; then printf "\[$COLOR_RED\][%s] " "$error"; fi`
   NC=`printf "\[$COLOR_NC\]"`
   export PS1="$DATE$NAME$DIR$GIT$EC$NC"
-
-  # export PS1="$NAME$NC zzzzzzz"
 }
 
 PROMPT_COMMAND=ps1
@@ -71,19 +75,17 @@ export PS2='> '
 export PS3='#? '
 export PS4='+ '
 
-pman() {
-  man -t "$1" | open -f -a /Applications/Preview.app
-}
-
-# Convenient stuff
+##### Aliases
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
-alias l="ls -GAl"
+alias l="ls -Al"
 
 alias ip="ifconfig | grep 'inet '"
 # Lists folders and files sizes in the current folder
+
 alias ducks='du -cksh * | sort --human-numeric-sort|head -11'
 alias f='find . -iname'
 alias gr='grep -r' # Recursive grep
@@ -92,8 +94,7 @@ alias top='top -o cpu'
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' \
     | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 
-# Git
-alias gb='git branch -v'
+# Git Aliases
 alias gd='git diff'
 alias gu="$EDITOR ~/.gitconfig"
 alias gs='git status'
@@ -101,6 +102,7 @@ alias gap='git add $(git rev-parse --show-toplevel); git commit; git push'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gc='git commit -m'
 alias gpr='git pull --rebase'
+alias ga="git commit -a --amend"
 
 function gco {
   if [[ $# == 0 ]]; then
@@ -109,32 +111,19 @@ function gco {
     git checkout "$@"
   fi
 }
-# deploys to mattdee123.com
-function deploy() {
-  cd /Users/mattdee/mattdee123.com/www
-  echo "Deploying to commit $(git log -n 1 --oneline HEAD)"
-  ssh matt "cd mattdee123.com && git fetch && git checkout $(git rev-parse HEAD)"
-  cd -
-}
 
 alias andrew="ssh afs"
 alias matt="ssh matt"
 alias shark="ssh shark"
 
-alias amend="git commit -a --amend"
 alias bashrc="subl ~/.bashrc"
 alias sml="rlwrap sml"
 alias e="subl"
 alias expand="cd \$(pwd -P)"
-alias o="open"
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
-
-# for sshfs stuff
-alias fsafs="sshfs afs: ~/afs"
-alias fsmatt="sshfs matt: ~/matt"
-alias server="python -m SimpleHTTPServer"
-alias sl="while true; do super-sl; done"
-
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
+if [ -f ~/.bashrc.local];
+then
+    source ~/.bashrc.local;
+fi
