@@ -9,6 +9,7 @@
 [push]
 	default = simple
 [alias]
+    remove = remote
     url = !echo "$(git config --get remote.origin.url | sed s/.git$//)"
     hub = !open "$(git url)"
     cmp = !open "$(git url)/commit/$(git rev-parse HEAD)"
