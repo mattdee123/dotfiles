@@ -10,7 +10,16 @@ export GREP_COLOR='1;32' #light green
 export CLICOLOR='1'
 
 export LSCOLORS="gxDxFxdxCxExExhbadgxgx"
-
+# NOTE: the "right" way to do colors would be to use tput, like
+# export COLOR_WHITE="$(tput bold && tput setaf 7)"
+# 0 – Black
+# 1 – Red
+# 2 – Green
+# 3 – Yellow
+# 4 – Blue
+# 5 – Magenta
+# 6 – Cyan
+# 7 – White
 # Setup some colors to use later in interactive shell or scripts
 export COLOR_NC='\e[0m' # No Color
 export COLOR_WHITE='\e[1;37m'
@@ -29,7 +38,8 @@ export COLOR_BROWN='\e[0;33m'
 export COLOR_YELLOW='\e[1;33m'
 export COLOR_GRAY='\e[1;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
-
+export UNDERLINE_START="$(tput smul)"
+export UNDERLINE_END="$(tput rmul)"
 ##### History
 export HISTSIZE=100000000
 export HISTCONTROL=ignoredups:erasedups
