@@ -46,7 +46,7 @@ else
     __git_ps1() { true; };
 fi;
 
-export DATE_COLOR=$COLOR_GREEN
+export TIME_COLOR=$COLOR_GREEN
 export NAME_COLOR=$COLOR_BROWN
 export DIR_COLOR=$COLOR_PURPLE
 export GIT_COLOR=$COLOR_LIGHT_CYAN
@@ -55,13 +55,13 @@ export ERR_COLOR=$COLOR_RED
 ps1() {
   error="$?"
   # 4x escape: 2x for in string, 2x for in printf
-  DATE=`printf "\[$DATE_COLOR\]%s " "[\\\\T]"`
+  TIME=`printf "\[$TIME_COLOR\]%s " "[\\\\T]"`
   NAME=`printf "\[$NAME_COLOR\]%s: " "\\\\u"`
   DIR=`printf "\[$DIR_COLOR\]%s " "\\\\w"`
   GIT=`printf "\[$GIT_COLOR\]%s" "$(__git_ps1 '%s ')"`
   EC=`if [ $error -ne 0 ]; then printf "\[$ERR_COLOR\][%s] " "$error"; fi`
   NC=`printf "\[$COLOR_NC\]"`
-  export PS1="$DATE$NAME$DIR$GIT$EC$NC"
+  export PS1="$TIME$NAME$DIR$GIT$EC$NC"
 }
 
 PROMPT_COMMAND=ps1
