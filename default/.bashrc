@@ -123,6 +123,7 @@ alias matt="ssh matt"
 alias shark="ssh shark"
 
 alias bashrc="vim ~/.bashrc"
+alias reload="source ~/.bashrc"
 alias sml="rlwrap sml"
 alias e="subl"
 alias expand="cd \$(pwd -P)"
