@@ -71,7 +71,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias l="ls -Al"
-
+alias la="ls -a"
 alias ip="ifconfig | grep 'inet '"
 # Lists folders and files sizes in the current folder
 
@@ -105,7 +105,7 @@ alias andrew="ssh afs"
 alias matt="ssh matt"
 alias shark="ssh shark"
 
-alias bashrc="subl ~/.bashrc"
+alias bashrc="vim ~/.bashrc"
 alias sml="rlwrap sml"
 alias e="subl"
 alias expand="cd \$(pwd -P)"
