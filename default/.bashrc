@@ -46,14 +46,20 @@ else
     __git_ps1() { true; };
 fi;
 
+export DATE_COLOR=$COLOR_GREEN
+export NAME_COLOR=$COLOR_BROWN
+export DIR_COLOR=$COLOR_PURPLE
+export GIT_COLOR=$COLOR_LIGHT_CYAN
+export ERR_COLOR=$COLOR_RED
+
 ps1() {
   error="$?"
   # 4x escape: 2x for in string, 2x for in printf
-  DATE=`printf "\[$COLOR_GREEN\]%s " "[\\\\T]"`
-  NAME=`printf "\[$COLOR_BROWN\]%s: " "\\\\u"`
-  DIR=`printf "\[$COLOR_PURPLE\]%s " "\\\\w"`
-  GIT=`printf "\[$COLOR_LIGHT_CYAN\]%s" "$(__git_ps1 '%s ')"`
-  EC=`if [ $error -ne 0 ]; then printf "\[$COLOR_RED\][%s] " "$error"; fi`
+  DATE=`printf "\[$DATE_COLOR\]%s " "[\\\\T]"`
+  NAME=`printf "\[$NAME_COLOR\]%s: " "\\\\u"`
+  DIR=`printf "\[$DIR_COLOR\]%s " "\\\\w"`
+  GIT=`printf "\[$GIT_COLOR\]%s" "$(__git_ps1 '%s ')"`
+  EC=`if [ $error -ne 0 ]; then printf "\[$ERR_COLOR\][%s] " "$error"; fi`
   NC=`printf "\[$COLOR_NC\]"`
   export PS1="$DATE$NAME$DIR$GIT$EC$NC"
 }
@@ -85,6 +91,7 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 
 # Git Aliases
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gu="$EDITOR ~/.gitconfig"
 alias gs='git status'
 alias gap='git add $(git rev-parse --show-toplevel); git commit; git push'
