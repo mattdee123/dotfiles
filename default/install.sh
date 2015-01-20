@@ -9,7 +9,8 @@ for file in $files;
 do
     link=~/$file;
     original=$PWD/$file;
-    current="$(readlink $link)" 
+    if [ ! -f $original ]; then continue; fi
+    current="$(readlink $link)"
     if [ -h $link ] && [ "$current" == "$original" ]
     then
         echo "$file is already installed";
