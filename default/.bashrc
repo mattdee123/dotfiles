@@ -133,4 +133,5 @@ alias pdf="open *.pdf"
 if [ -f ~/.bashrc.local ];
 then
     source ~/.bashrc.local;
+    alias localrc="vim ~/.bashrc.local"
 fi
