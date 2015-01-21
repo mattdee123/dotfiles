@@ -38,8 +38,9 @@ export COLOR_BROWN='\e[0;33m'
 export COLOR_YELLOW='\e[1;33m'
 export COLOR_GRAY='\e[1;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
-export UNDERLINE_START="$(tput smul)"
-export UNDERLINE_END="$(tput rmul)"
+# removed for situations where there is no term (like scp)
+# export UNDERLINE_START="$(tput smul)"
+# export UNDERLINE_END="$(tput rmul)"
 ##### History
 export HISTSIZE=100000000
 export HISTCONTROL=ignoredups:erasedups
