@@ -120,6 +120,7 @@ function gco {
 }
 
 alias andrew="ssh afs"
+alias andrewx="ssh -X afs"
 alias matt="ssh matt"
 alias shark="ssh shark"
 
