@@ -1,3 +1,4 @@
+let mapleader=","
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
@@ -21,7 +22,7 @@ nmap <C-t> :!pdflatex %<CR>
 
 autocmd FileType html setlocal indentkeys=""
 
-:match ErrorMsg '\%>100v.\+'
+:match ErrorMsg '\%>80v.\+'
 
 :highlight BadWS ctermbg=darkgreen
 :match BadWS /\s\+$\|\t/
@@ -29,4 +30,5 @@ set showmatch  "Highlight matching braces
 " Syntax highlighting and stuff
 filetype plugin indent on
 syntax on
+let g:load_doxygen_syntax=1
 
