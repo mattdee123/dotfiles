@@ -486,9 +486,7 @@ function! <SID>DoxygenAuthorFunc()
   exec "normal o".s:interCommentTag.g:DoxygenToolkit_briefTag_pre
   mark d
   exec "normal o".s:interCommentTag.g:DoxygenToolkit_authorTag.g:DoxygenToolkit_authorName
-  exec "normal o".s:interCommentTag.g:DoxygenToolkit_versionTag.g:DoxygenToolkit_versionString
-  let l:date = strftime("%Y-%m-%d")
-  exec "normal o".s:interCommentTag.g:DoxygenToolkit_dateTag.l:date
+  exec "normal o* @bug"
   if ( g:DoxygenToolkit_endCommentTag != "" )
     exec "normal o".s:endCommentTag
   endif

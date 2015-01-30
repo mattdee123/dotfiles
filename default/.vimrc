@@ -1,3 +1,4 @@
+" This makes nerd commenter and others use the comma
 let mapleader=","
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
@@ -31,4 +32,5 @@ set showmatch  "Highlight matching braces
 filetype plugin indent on
 syntax on
 let g:load_doxygen_syntax=1
-
+let g:DoxygenToolkit_authorName="Matt Dee (medee)"
+let g:DoxygenToolkit_versionString=""
