@@ -12,21 +12,21 @@ filetype plugin indent on
 " Show line numbers
 set number
 set ruler
-
+" Status line
+set laststatus=2
+hi StatusLine ctermbg=0 ctermfg=0
 " Get tabs to act right
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set autoindent
 set mouse=a
-nmap <C-t> :!pdflatex %<CR>
 
 autocmd FileType html setlocal indentkeys=""
 
-:match ErrorMsg '\%>80v.\+'
-
-:highlight BadWS ctermbg=darkgreen
-:match BadWS /\s\+$\|\t/
+match ErrorMsg '\%>80v.\+'
+highlight BadWS ctermbg=darkgreen
+call matchadd('BadWs', '\s\+$\|\t', 1)
 set showmatch  "Highlight matching braces
 " Syntax highlighting and stuff
 filetype plugin indent on
