@@ -14,10 +14,6 @@ filetype plugin indent on
 set number
 set ruler
 
-" Make the status line show the name of the current file
-set laststatus=2
-hi StatusLine ctermbg=0 ctermfg=0
-
 " Get tabs and indenting to act right
 set expandtab
 set tabstop=4
@@ -39,3 +35,5 @@ set showmatch  "Highlight matching braces
 let g:load_doxygen_syntax=1
 let g:DoxygenToolkit_authorName="Matt Dee (medee)"
 let g:DoxygenToolkit_versionString=""
+
+nnoremap <C-o> o<Esc>

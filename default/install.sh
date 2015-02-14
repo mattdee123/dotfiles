@@ -25,7 +25,7 @@ do
 
     read input;
     if [ $input = "y" ];
-    then 
+    then
         if [ -f $link ]; then rm $link; fi;
         mkdir -p $link
         rm -r $link
