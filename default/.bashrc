@@ -95,7 +95,6 @@ alias ip="ifconfig | grep 'inet '"
 alias ducks='du -cksh * | sort --human-numeric-sort|head -11'
 alias f='find . -iname'
 alias gr='grep -r' # Recursive grep
-alias top='top -o cpu'
 # Shows most used commands, from:lifehacker.com/software/how-to/turbocharge-your-terminal-274317.php
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' \
     | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
