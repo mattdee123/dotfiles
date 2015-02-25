@@ -24,7 +24,9 @@ set autoindent
 set mouse=a
 
 " Highlight characters over 80 lines red
-match ErrorMsg '\%>80v.\+'
+set textwidth=80
+set colorcolumn=+1
+highlight ColorColumn ctermbg=4
 
 " Highlight tabs and trailing whitespace in green
 highlight BadWS ctermbg=darkgreen
