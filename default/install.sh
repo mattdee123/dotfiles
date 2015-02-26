@@ -1,6 +1,6 @@
 if git rev-parse 2> /dev/null;
 then
-    files=`(git ls-files .[^.]*)`;
+    files=`(git ls-tree HEAD --name-only .[^.]*)`;
 else
     files=`ls .[^.]*`;
 fi;
@@ -9,7 +9,7 @@ for file in $files;
 do
     link=~/$file;
     original=$PWD/$file;
-    if [ ! -f $original ]; then continue; fi
+    if [ ! -e $original ]; then continue; fi
     current="$(readlink $link)"
     if [ -h $link ] && [ "$current" == "$original" ]
     then
