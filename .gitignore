@@ -30,3 +30,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# .ssh files to ignore
+*id_rsa*
+known_hosts

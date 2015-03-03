@@ -1,3 +1,6 @@
+execute pathogen#infect()
+
+set nocompatible
 " This makes nerd commenter plugin and others use the comma
 let mapleader=","
 
@@ -13,7 +16,12 @@ filetype plugin indent on
 " Show line numbers
 set number
 set ruler
-
+set showcmd
+set linebreak
+set scrolloff=3
+set tildeop
+set breakindent
+set hlsearch
 " Get tabs and indenting to act right
 set expandtab
 set tabstop=4
@@ -39,3 +47,17 @@ let g:DoxygenToolkit_authorName="Matt Dee (medee)"
 let g:DoxygenToolkit_versionString=""
 
 nnoremap <C-o> o<Esc>
+nmap <silent> <leader>t :NERDTreeToggle<CR>
+" Make autocomplete work right
+set wildmenu
+set wildmode=longest,list
+
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+"augroup mySyntastic
+      "au!
+      "au FileType tex let b:syntastic_mode = "passive"
+"augroup END
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
