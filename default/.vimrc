@@ -52,12 +52,5 @@ nmap <silent> <leader>t :NERDTreeToggle<CR>
 set wildmenu
 set wildmode=longest,list
 
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
-"augroup mySyntastic
-      "au!
-      "au FileType tex let b:syntastic_mode = "passive"
-"augroup END
-
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
