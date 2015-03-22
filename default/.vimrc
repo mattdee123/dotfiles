@@ -22,6 +22,7 @@ set scrolloff=3
 set tildeop
 set breakindent
 set hlsearch
+set incsearch
 " Get tabs and indenting to act right
 set expandtab
 set tabstop=4
@@ -51,6 +52,6 @@ nmap <silent> <leader>t :NERDTreeToggle<CR>
 " Make autocomplete work right
 set wildmenu
 set wildmode=longest,list
-
+set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
