@@ -87,6 +87,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias t="tmux -a"
+
 alias l="ls -Al"
 alias la="ls -a"
 alias ip="ifconfig | grep 'inet '"
