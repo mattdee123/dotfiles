@@ -87,7 +87,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias t="tmux -a"
+alias t="tmux a"
 
 alias l="ls -Al"
 alias la="ls -a"
