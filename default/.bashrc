@@ -87,6 +87,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias t="tmux a"
+
 alias l="ls -Al"
 alias la="ls -a"
 alias ip="ifconfig | grep 'inet '"
@@ -109,6 +111,8 @@ alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gc='git commit -m'
 alias gpr='git pull --rebase'
 alias ga="git commit -a --amend"
+alias gg="git grep"
+alias grh="git reset --hard"
 
 function gco {
   if [[ $# == 0 ]]; then

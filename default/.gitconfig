@@ -15,3 +15,5 @@
     cmp = !open "$(git url)/commit/$(git rev-parse HEAD)"
     amend = commit --amend
     b = branch
+[color]
+    ui = true
