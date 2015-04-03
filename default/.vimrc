@@ -1,4 +1,6 @@
 execute pathogen#infect()
+" THIS MIGHT BE DANGEROUS :(
+set noswapfile
 
 set nocompatible
 " This makes nerd commenter plugin and others use the comma
