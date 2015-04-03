@@ -40,6 +40,8 @@ highlight ColorColumn ctermbg=4
 " Highlight tabs and trailing whitespace in green
 highlight BadWS ctermbg=darkgreen
 call matchadd('BadWs', '\s\+$\|\t', 1)
+" Delete trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 set showmatch  "Highlight matching braces
 
 " Doxygen Plugin Preferences
