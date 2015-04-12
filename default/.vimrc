@@ -53,6 +53,7 @@ let g:DoxygenToolkit_versionString=""
 
 nnoremap <C-o> o<Esc>
 nnoremap ` :w<CR>
+nnoremap \ :q<CR>
 nmap <silent> <leader>t :NERDTreeToggle<CR>
 " Make autocomplete work right
 set wildmenu

@@ -113,6 +113,7 @@ alias gpr='git pull --rebase'
 alias ga="git commit -a --amend"
 alias gg="git grep"
 alias grh="git reset --hard"
+alias gl="git log --oneline"
 
 function gco {
   if [[ $# == 0 ]]; then
