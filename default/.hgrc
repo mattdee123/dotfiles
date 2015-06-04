@@ -1,0 +1,22 @@
+%include ~/.hgrc_common
+[ui]
+username = Matt Dee <mattdee@dropbox.com>
+
+[auth]
+sonic.prefix = https://sonic.corp.dropbox.com
+sonic.username = mattdee
+
+[extensions]
+mercurial_keyring =
+prompt = ~/.hg_ext/hg-prompt/prompt.py
+mq =
+eol =
+progress =
+color=
+shelve=
+
+[dropbox]
+
+[annotate]
+ignorews = 1
+

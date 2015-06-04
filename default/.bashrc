@@ -61,7 +61,12 @@ export TIME_COLOR=$COLOR_GREEN
 export NAME_COLOR=$COLOR_BROWN
 export DIR_COLOR=$COLOR_PURPLE
 export GIT_COLOR=$COLOR_LIGHT_CYAN
+export MERC_COLOR=$COLOR_LIGHT_RED
 export ERR_COLOR=$COLOR_RED
+
+hg_ps1() {
+    hg prompt "{{branch} }{{status} }" 2> /dev/null
+}
 
 ps1() {
   error="$?"
@@ -70,9 +75,10 @@ ps1() {
   NAME=`printf "\[$NAME_COLOR\]%s: " "\\\\u"`
   DIR=`printf "\[$DIR_COLOR\]%s " "\\\\w"`
   GIT=`printf "\[$GIT_COLOR\]%s" "$(__git_ps1 '%s ')"`
+  MERC=`printf "\[$MERC_COLOR\]%s" "$(hg_ps1)"`
   EC=`if [ $error -ne 0 ]; then printf "\[$ERR_COLOR\][%s] " "$error"; fi`
   NC=`printf "\[$COLOR_NC\]"`
-  export PS1="$TIME$NAME$DIR$GIT$EC$NC"
+  export PS1="$TIME$NAME$DIR$GIT$MERC$EC$NC"
 }
 
 PROMPT_COMMAND=ps1

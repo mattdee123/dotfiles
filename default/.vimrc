@@ -17,12 +17,10 @@ filetype plugin indent on
 
 " Show line numbers
 set number
-set ruler
 set showcmd
 set linebreak
 set scrolloff=3
 set tildeop
-set breakindent
 set hlsearch
 set incsearch
 " Get tabs and indenting to act right
@@ -34,8 +32,10 @@ set autoindent
 " THE BEST THING EVER; Vim with a mouse
 set mouse=a
 
-" Highlight characters over 80 lines red
-set textwidth=80
+set ignorecase
+set smartcase
+
+set textwidth=120
 set colorcolumn=+1
 highlight ColorColumn ctermbg=4
 
@@ -61,3 +61,7 @@ set wildmode=longest,list
 set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = 'pyc\|html'
+set laststatus=2
+hi StatusLine ctermbg=white ctermfg=black
+set ruler
