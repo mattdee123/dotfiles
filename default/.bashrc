@@ -142,6 +142,9 @@ alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
 alias localrc="vim ~/.bashrc.local"
+function pprint {
+    python -c "print $1"
+}
 if [ -f ~/.bashrc.local ];
 then
     source ~/.bashrc.local;
