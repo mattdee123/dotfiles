@@ -1,3 +1,9 @@
+#set editing-mode vi
+#set keymap vi-insert
+Control-l: clear-screen
+Control-f: forward-word
+Control-b: backward-word
+
 ## arrow up
 "\e[A":history-search-backward
 ## arrow down

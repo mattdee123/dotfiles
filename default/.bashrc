@@ -149,3 +149,6 @@ if [ -f ~/.bashrc.local ];
 then
     source ~/.bashrc.local;
 fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND="find * -not -name *.pyc"
+

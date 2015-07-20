@@ -1,3 +1,4 @@
+colorscheme ron
 execute pathogen#infect()
 " THIS MIGHT BE DANGEROUS :(
 set noswapfile
@@ -60,8 +61,13 @@ set wildmenu
 set wildmode=longest,list
 set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'FZF'
 let g:ctrlp_custom_ignore = 'pyc\|html'
 set laststatus=2
 hi StatusLine ctermbg=white ctermfg=black
 set ruler
+
+set rtp+=/usr/local/Cellar/fzf/0.9.12
+set nowrap
+
+set relativenumber
