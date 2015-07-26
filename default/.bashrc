@@ -141,3 +141,5 @@ then
     source ~/.bashrc.local;
     alias localrc="vim ~/.bashrc.local"
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
