@@ -1,4 +1,7 @@
 set editing-mode vi
+Control-l: clear-screen
+Control-f: forward-word
+Control-b: backward-word
 
 ## arrow up
 "\e[A":history-search-backward

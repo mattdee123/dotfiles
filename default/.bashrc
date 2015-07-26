@@ -91,7 +91,6 @@ alias t="tmux a"
 
 alias l="ls -Al"
 alias la="ls -a"
-alias ip="ifconfig | grep 'inet '"
 # Lists folders and files sizes in the current folder
 
 alias ducks='du -cksh * | sort --human-numeric-sort|head -11'
@@ -136,10 +135,9 @@ alias expand="cd \$(pwd -P)"
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
-if [ -f ~/.bashrc.local ];
-then
-    source ~/.bashrc.local;
-    alias localrc="vim ~/.bashrc.local"
-fi
-
+alias localrc="vim ~/.bashrc.local"
+function pprint {
+    python -c "print $1"
+}
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

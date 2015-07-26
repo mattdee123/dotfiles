@@ -1,3 +1,4 @@
+colorscheme ron
 execute pathogen#infect()
 " THIS MIGHT BE DANGEROUS :(
 set noswapfile
@@ -22,7 +23,9 @@ set showcmd
 set linebreak
 set scrolloff=3
 set tildeop
-set breakindent
+if exists("&breakindent")
+    set breakindent
+endif
 set hlsearch
 set incsearch
 " Get tabs and indenting to act right
@@ -31,10 +34,11 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
-" THE BEST THING EVER; Vim with a mouse
 set mouse=a
 
-" Highlight characters over 80 lines red
+set ignorecase
+set smartcase
+
 set textwidth=80
 set colorcolumn=+1
 highlight ColorColumn ctermbg=4
@@ -61,3 +65,8 @@ set wildmode=longest,list
 set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'FZF'
+set laststatus=2
+hi StatusLine ctermbg=white ctermfg=black
+
+set rtp+=/usr/local/Cellar/fzf/0.9.12
+set relativenumber
