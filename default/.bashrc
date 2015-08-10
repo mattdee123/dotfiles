@@ -140,4 +140,3 @@ function pprint {
     python -c "print $1"
 }
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
