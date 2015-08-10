@@ -1,9 +1,0 @@
-[submodule "default/.vim/bundle/nerdtree"]
-	path = default/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "default/.vim/bundle/ctrlp.vim"]
-	path = default/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim
-[submodule "default/.vim/bundle/nerdcommenter"]
-	path = default/.vim/bundle/nerdcommenter
-	url = git@github.com:scrooloose/nerdcommenter.git
