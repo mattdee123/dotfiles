@@ -63,6 +63,7 @@ nmap <silent> <leader>t :NERDTreeToggle<CR>
 set wildmenu
 set wildmode=longest,list
 set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam
+nnoremap <c-p> :FZF<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'FZF'
 set laststatus=2
