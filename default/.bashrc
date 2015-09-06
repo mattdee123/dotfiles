@@ -136,6 +136,7 @@ alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
 alias localrc="vim ~/.bashrc.local"
+alias python="python3"
 function pprint {
     python -c "print $1"
 }
