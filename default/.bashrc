@@ -87,7 +87,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias t="tmux a"
+alias t="tmux a -t main"
 
 alias l="ls -Al"
 alias la="ls -a"
@@ -138,6 +138,6 @@ alias pdf="open *.pdf"
 alias localrc="vim ~/.bashrc.local"
 alias python="python3"
 function pprint {
-    python -c "print $1"
+    python -c "print($1)"
 }
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local

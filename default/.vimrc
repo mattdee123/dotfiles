@@ -58,7 +58,6 @@ let g:DoxygenToolkit_versionString=""
 nnoremap <C-o> o<Esc>
 nnoremap ` :w<CR>
 nnoremap \ :q<CR>
-nmap <silent> <leader>t :NERDTreeToggle<CR>
 " Make autocomplete work right
 set wildmenu
 set wildmode=longest,list
@@ -71,3 +70,10 @@ hi StatusLine ctermbg=white ctermfg=black
 
 set rtp+=/usr/local/Cellar/fzf/0.9.12
 set relativenumber
+
+
+set rtp+=/usr/local/share/ocamlmerlin/vim
+nmap <silent> <leader>t :MerlinTypeOf <CR>
+vmap <silent> <leader>t :MerlinTypeOf <CR>
+
+set timeout timeoutlen=500 ttimeoutlen=500
