@@ -63,7 +63,7 @@ export DIR_COLOR=$COLOR_PURPLE
 export GIT_COLOR=$COLOR_LIGHT_CYAN
 export ERR_COLOR=$COLOR_RED
 
-boring_hosts=("mattmac.local")
+boring_hosts=("mattmac.local" "MATTDEE.WV.CC.CMU.EDU")
 my_host=`hostname`
 boring=0
 for h in "${boring_hosts[@]}";
@@ -149,5 +149,16 @@ alias python="python3"
 function pprint {
     python -c "print($1)"
 }
+
+function down {
+    curl "3566.me/""$1"
+}
+
+function up {
+    curl "www.3566.me/""$1" --data-binary "@-"
+}
+
+
+
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 true
