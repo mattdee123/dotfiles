@@ -158,7 +158,5 @@ function up {
     curl "www.3566.me/""$1" --data-binary "@-"
 }
 
-
-
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 true
