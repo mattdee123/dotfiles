@@ -58,20 +58,11 @@ else
     __git_ps1() { true; };
 fi;
 
-export TIME_COLOR=$COLOR_GREEN
+export TIME_COLOR=$COLOR_LIGHT_GREEN
 export NAME_COLOR=$COLOR_BROWN
 export DIR_COLOR=$COLOR_PURPLE
 export GIT_COLOR=$COLOR_LIGHT_CYAN
 export ERR_COLOR=$COLOR_RED
-
-boring_hosts=("mattmac.local" "MATTDEE.WV.CC.CMU.EDU" "mattmac")
-my_host=`hostname`
-boring=0
-for h in "${boring_hosts[@]}";
-    do if [ $h == $my_host ]; then boring=1; fi;
-done
-
-[ $boring -eq 0 ] && TIME_COLOR=$COLOR_LIGHT_GREEN
 
 ps1() {
   error="$?"
