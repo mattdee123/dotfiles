@@ -26,54 +26,45 @@ set tildeop
 if exists("&breakindent")
     set breakindent
 endif
+
+" Make searching better
 set hlsearch
 set incsearch
+
+set showmatch  "Highlight matching braces
+
 " Get tabs and indenting to act right
 set expandtab
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
-set autoindent
+set smartindent
 
 set mouse=a
 
 set ignorecase
 set smartcase
 
-set textwidth=80
+set textwidth=85
 set colorcolumn=+1
 highlight ColorColumn ctermbg=4
 
 " Highlight tabs and trailing whitespace in green
 highlight BadWS ctermbg=darkgreen
 call matchadd('BadWs', '\s\+$\|\t', 1)
-" Delete trailing whitespace
+
+" Delete trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-set showmatch  "Highlight matching braces
 
-" Doxygen Plugin Preferences
-let g:load_doxygen_syntax=1
-let g:DoxygenToolkit_authorName="Matt Dee (medee)"
-let g:DoxygenToolkit_versionString=""
-
-nnoremap <C-o> o<Esc>
 nnoremap ` :w<CR>
 nnoremap \ :q<CR>
 " Make autocomplete work right
-set wildmenu
-set wildmode=longest,list
-set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam
 nnoremap <c-p> :FZF<CR>
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'FZF'
+
+" Always have a status line with with black bg (yes this is weird)
 set laststatus=2
 hi StatusLine ctermbg=white ctermfg=black
 
-set rtp+=/usr/local/Cellar/fzf/0.9.12
 set relativenumber
 
-
-set rtp+=/usr/local/share/ocamlmerlin/vim
-nmap <silent> <leader>t :MerlinTypeOf <CR>
-vmap <silent> <leader>t :MerlinTypeOf <CR>
-
-set timeout timeoutlen=500 ttimeoutlen=500
+au BufRead,BufNewFile *.sig set filetype=sml

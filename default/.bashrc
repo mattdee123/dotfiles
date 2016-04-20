@@ -43,8 +43,9 @@ export COLOR_LIGHT_GRAY='\e[0;37m'
 # export UNDERLINE_END="$(tput rmul)"
 ##### History
 export HISTSIZE=100000000
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoreboth
 export HISTFILESIZE=10000000
+export HISTTIMEFORMAT='%F %T '
 shopt -s histappend
 
 ##### Prompt
@@ -63,7 +64,7 @@ export DIR_COLOR=$COLOR_PURPLE
 export GIT_COLOR=$COLOR_LIGHT_CYAN
 export ERR_COLOR=$COLOR_RED
 
-boring_hosts=("mattmac.local" "MATTDEE.WV.CC.CMU.EDU")
+boring_hosts=("mattmac.local" "MATTDEE.WV.CC.CMU.EDU" "mattmac")
 my_host=`hostname`
 boring=0
 for h in "${boring_hosts[@]}";
@@ -74,6 +75,7 @@ done
 
 ps1() {
   error="$?"
+  history -a
   # 4x escape: 2x for in string, 2x for in printf
   TIME=`printf "\[$TIME_COLOR\]%s " "[\\\\T]"`
   NAME=`printf "\[$NAME_COLOR\]%s: " "\\\\u"`
@@ -145,17 +147,16 @@ alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
 alias localrc="vim ~/.bashrc.local"
-alias python="python3"
 function pprint {
     python -c "print($1)"
 }
 
 function down {
-    curl "3566.me/""$1"
+    curl "https://3566.me/""$1"
 }
 
 function up {
-    curl "www.3566.me/""$1" --data-binary "@-"
+    curl "https://3566.me/""$1" --data-binary "@-" && echo -n "https://3566.me/$1" | pbcopy
 }
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
