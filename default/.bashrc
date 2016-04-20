@@ -147,7 +147,8 @@ function down {
 }
 
 function up {
-    curl "https://3566.me/""$1" --data-binary "@-" && echo -n "https://3566.me/$1" | pbcopy
+    (curl "https://3566.me/""$1" --data-binary "@-" &&
+        hash pbcopy 2>/dev/null && echo -n "https://3566.me/$1" | pbcopy) || true
 }
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
