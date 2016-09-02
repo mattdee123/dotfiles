@@ -58,6 +58,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 nnoremap ` :w<CR>
 nnoremap \ :q<CR>
+nnoremap <TAB> :e<CR>
+nmap - :noh<CR>
+nmap <Leader>y :call writefile(split(@@, "\n", 1), '/tmp/vimcopy')
+nmap <leader>p :r! cat /tmp/vitmp<CR>
 " Make autocomplete work right
 nnoremap <c-p> :FZF<CR>
 
