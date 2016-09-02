@@ -1,7 +1,7 @@
 export FCEDIT=vim
 export EDITOR=vim
 ##### Path
-export PATH="/usr/local/bin:$PATH"
+export PATH="~/bin:/usr/local/bin:$PATH"
 
 ##### Colors
 export GREP_OPTIONS='--color=auto'
@@ -147,7 +147,7 @@ function down {
 }
 
 function up {
-    (curl "https://3566.me/""$1" --data-binary "@-" &&
+    (curl "https://3566.me/""$1" --data-binary "@-" -o /dev/null &&
         hash pbcopy 2>/dev/null && echo -n "https://3566.me/$1" | pbcopy) || true
 }
 
