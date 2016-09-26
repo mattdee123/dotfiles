@@ -45,13 +45,13 @@ set mouse=a
 set ignorecase
 set smartcase
 
-set textwidth=85
-set colorcolumn=+1
-highlight ColorColumn ctermbg=4
+"set textwidth=85
+"set colorcolumn=+1
+"highlight ColorColumn ctermbg=4
 
 " Highlight tabs and trailing whitespace in green
 highlight BadWS ctermbg=darkgreen
-call matchadd('BadWs', '\s\+$\|\t', 1)
+call matchadd('BadWs', '\s\+$\', 1)
 
 " Delete trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -60,8 +60,8 @@ nnoremap ` :w<CR>
 nnoremap \ :q<CR>
 nnoremap <TAB> :e<CR>
 nmap - :noh<CR>
-nmap <Leader>y :call writefile(split(@@, "\n", 1), '/tmp/vimcopy')
-nmap <leader>p :r! cat /tmp/vitmp<CR>
+nmap <Leader>y :call writefile(split(@@, "\n", 1), '/tmp/vimcopy')<CR>
+nmap <leader>p :r! cat /tmp/vimcopy<CR>
 " Make autocomplete work right
 nnoremap <c-p> :FZF<CR>
 
