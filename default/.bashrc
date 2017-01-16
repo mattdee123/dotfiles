@@ -105,16 +105,15 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 # Git Aliases
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gdm='git diff `git merge-base master HEAD`'
 alias gu="$EDITOR ~/.gitconfig"
 alias gs='git status'
 alias gap='git add $(git rev-parse --show-toplevel); git commit; git push'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gc='git commit -m'
 alias gpr='git pull --rebase'
-alias ga="git commit -a --amend"
-alias gg="git grep"
-alias grh="git reset --hard"
-alias gl="git log --oneline"
+alias ga='git add -u .'
+alias gca='git commit --amend'
 
 function gco {
   if [[ $# == 0 ]]; then
@@ -132,7 +131,7 @@ alias shark="ssh shark"
 alias bashrc="vim ~/.bashrc"
 alias reload="source ~/.bashrc"
 alias sml="rlwrap sml"
-alias e="subl"
+alias v="vim"
 alias expand='cd "$(pwd -P)"'
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
