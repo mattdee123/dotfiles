@@ -72,3 +72,4 @@ hi StatusLine ctermbg=white ctermfg=black
 set relativenumber
 
 au BufRead,BufNewFile *.sig set filetype=sml
+set completeopt-=preview
