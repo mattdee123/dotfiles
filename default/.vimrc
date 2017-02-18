@@ -57,12 +57,14 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 nnoremap ` :w<CR>
 nnoremap \ :q<CR>
-nnoremap <TAB> :e<CR>
+nnoremap E :e<CR>
 nmap - :noh<CR>
 nmap <Leader>y :call writefile(split(@@, "\n", 1), '/tmp/vimcopy')<CR>
 nmap <leader>p :r! cat /tmp/vimcopy<CR>
-" Make autocomplete work right
-"nnoremap <c-p> :FZF<CR>
+
+" Make FZF work right
+nnoremap <c-p> :FZF<CR>
+set rtp+=/usr/local/opt/fzf
 
 " Always have a status line with with black bg (yes this is weird)
 set laststatus=2
@@ -70,5 +72,15 @@ hi StatusLine ctermbg=white ctermfg=black
 
 set relativenumber
 
-au BufRead,BufNewFile *.sig set filetype=sml
 set completeopt-=preview
+
+" Go stuff
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>T <Plug>(go-test)
+au FileType go nmap <leader>t <Plug>(go-test-func)
+au FileType go nmap <leader>p <Plug>(go-imports)
+au FileType go nmap <leader>i <Plug>(go-implements)
+au FileType go nmap <leader>d <Plug>(go-def)
+au FileType go nmap <leader>r <Plug>(go-rename)
+au FileType go nmap <leader>ml <Plug>(go-metalinter)
+" also :GoImpl to generate interfaces

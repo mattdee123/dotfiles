@@ -17,3 +17,7 @@
     b = branch
 [color]
     ui = true
+[http]
+	sslVerify = true
+[http "https://gopkg.in"]
+	followRedirects = true
