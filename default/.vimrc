@@ -1,4 +1,3 @@
-colorscheme ron
 execute pathogen#infect()
 " THIS MIGHT BE DANGEROUS :(
 set noswapfile
@@ -63,7 +62,7 @@ nmap - :noh<CR>
 nmap <Leader>y :call writefile(split(@@, "\n", 1), '/tmp/vimcopy')<CR>
 nmap <leader>p :r! cat /tmp/vimcopy<CR>
 " Make autocomplete work right
-nnoremap <c-p> :FZF<CR>
+"nnoremap <c-p> :FZF<CR>
 
 " Always have a status line with with black bg (yes this is weird)
 set laststatus=2
