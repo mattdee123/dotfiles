@@ -129,6 +129,8 @@ alias matt="ssh matt"
 alias shark="ssh shark"
 
 alias bashrc="vim ~/.bashrc"
+alias localrc="vim ~/.bashrc.local"
+alias vimrc="vim ~/.vimrc"
 alias reload="source ~/.bashrc"
 alias sml="rlwrap sml"
 alias v="vim -c ':FZF'"
@@ -136,7 +138,6 @@ alias expand='cd "$(pwd -P)"'
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
-alias localrc="vim ~/.bashrc.local"
 function pprint {
     python -c "print($1)"
 }

@@ -58,7 +58,12 @@ autocmd BufWritePre * :%s/\s\+$//e
 nnoremap ` :w<CR>
 nnoremap \ :q<CR>
 nnoremap E :e<CR>
-nmap - :noh<CR>
+" ccl closes quickfix box, lcl closes location list
+nmap - :noh<CR>:ccl<CR>:lcl<CR>
+
+nnoremap <c-n> :cn<CR>
+nnoremap <c-m> :cN<cr>
+
 nmap <Leader>y :call writefile(split(@@, "\n", 1), '/tmp/vimcopy')<CR>
 nmap <leader>p :r! cat /tmp/vimcopy<CR>
 
@@ -75,7 +80,7 @@ set relativenumber
 set completeopt-=preview
 
 " Go stuff
-au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>b :GoTestCompile<CR>
 au FileType go nmap <leader>T <Plug>(go-test)
 au FileType go nmap <leader>t <Plug>(go-test-func)
 au FileType go nmap <leader>; <Plug>(go-imports)
@@ -83,4 +88,5 @@ au FileType go nmap <leader>i <Plug>(go-implements)
 au FileType go nmap <leader>d <Plug>(go-def)
 au FileType go nmap <leader>r <Plug>(go-rename)
 au FileType go nmap <leader>ml <Plug>(go-metalinter)
+au FileType go nmap <leader>n <Plug>(go-info)
 " also :GoImpl to generate interfaces
