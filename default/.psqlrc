@@ -1,0 +1,21 @@
+\set QUIET 1
+
+-- Don't display NULL as blank space.
+\pset null '¤'
+
+-- Wrap long lines.
+\pset format wrapped
+
+-- Custom prompt: <env>-<dbname>
+\set PROMPT1 '[%m][%/]%# '
+\set PROMPT2 '... %# '
+
+\timing
+\set VERBOSITY verbose
+\x auto
+set timezone='us/eastern';
+
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+
+\unset quiet

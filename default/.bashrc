@@ -106,6 +106,7 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdm='git diff `git merge-base master HEAD`'
+alias gb='git branch'
 alias gu="$EDITOR ~/.gitconfig"
 alias gs='git status'
 alias gap='git add $(git rev-parse --show-toplevel); git commit; git push'

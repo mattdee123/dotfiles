@@ -82,6 +82,8 @@ set completeopt-=preview
 " Go stuff
 au FileType go nmap <leader>b :GoTestCompile<CR>
 au FileType go nmap <leader>T <Plug>(go-test)
+au FileType go nmap <leader>cc <Plug>(go-coverage-clear)
+au FileType go nmap <leader>C <Plug>(go-coverage)
 au FileType go nmap <leader>t <Plug>(go-test-func)
 au FileType go nmap <leader>; <Plug>(go-imports)
 au FileType go nmap <leader>i <Plug>(go-implements)
