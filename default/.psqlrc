@@ -7,10 +7,9 @@
 \pset format wrapped
 
 -- Custom prompt: <env>-<dbname>
-\set PROMPT1 '[%m][%/]%# '
+\set PROMPT1 '%[%033[1;30m%]%/:%m%[%033[0m%] %# '
 \set PROMPT2 '... %# '
 
-\timing
 \set VERBOSITY verbose
 \x auto
 set timezone='us/eastern';
@@ -18,4 +17,6 @@ set timezone='us/eastern';
 \set HISTFILE ~/.psql_history- :DBNAME
 \set HISTCONTROL ignoredups
 
+
+\timing
 \unset quiet
