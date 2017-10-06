@@ -92,3 +92,5 @@ au FileType go nmap <leader>r <Plug>(go-rename)
 au FileType go nmap <leader>ml <Plug>(go-metalinter)
 au FileType go nmap <leader>n <Plug>(go-info)
 " also :GoImpl to generate interfaces
+"
+au BufNewFile,BufRead *.aurora setlocal ft=python
