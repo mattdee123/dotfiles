@@ -67,7 +67,7 @@ nnoremap <c-m> :cN<cr>
 nmap <Leader>y :call writefile(split(@@, "\n", 1), '/tmp/vimcopy')<CR>
 nmap <leader>p :r! cat /tmp/vimcopy<CR>
 
-" Make FZF work right
+ "Make FZF work right
 nnoremap <c-p> :FZF<CR>
 set rtp+=/usr/local/opt/fzf
 
@@ -81,6 +81,7 @@ set completeopt-=preview
 
 " Go stuff
 au FileType go nmap <leader>b :GoTestCompile<CR>
+au FileType go nmap <leader>B :GoBuild<CR>
 au FileType go nmap <leader>T <Plug>(go-test)
 au FileType go nmap <leader>cc <Plug>(go-coverage-clear)
 au FileType go nmap <leader>C <Plug>(go-coverage)
@@ -93,4 +94,13 @@ au FileType go nmap <leader>ml <Plug>(go-metalinter)
 au FileType go nmap <leader>n <Plug>(go-info)
 " also :GoImpl to generate interfaces
 "
+nmap <leader>a :Ack<Space>
+
 au BufNewFile,BufRead *.aurora setlocal ft=python
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+endif

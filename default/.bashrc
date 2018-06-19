@@ -110,6 +110,7 @@ alias gdms='gdm --stat'
 alias gb='git branch'
 alias gu="$EDITOR ~/.gitconfig"
 alias gs='git status'
+alias gl='git log'
 alias gap='git add $(git rev-parse --show-toplevel); git commit; git push'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gc='git commit -m'
