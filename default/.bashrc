@@ -117,6 +117,13 @@ alias gc='git commit -m'
 alias gpr='git pull --rebase'
 alias ga='git add -u .'
 alias gca='git commit --amend'
+function squash {
+    if [[ $# == 0 ]]; then
+        echo 'must provide an argument'
+    else
+        git reset --soft "$(git merge-base master HEAD)" && git commit -m "$1"
+    fi
+}
 
 function gco {
   if [[ $# == 0 ]]; then
@@ -141,6 +148,10 @@ alias expand='cd "$(pwd -P)"'
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
+function tosql {
+    awk "\$0=\"'\"\$0\"',\""
+}
+
 function pprint {
     python -c "print($1)"
 }
@@ -149,10 +160,16 @@ function down {
     curl "https://3566.me/""$1"
 }
 
-function up {
-    (curl "https://3566.me/""$1" --data-binary "@-" -o /dev/null &&
-        hash pbcopy 2>/dev/null && echo -n "https://3566.me/$1" | pbcopy) || true
+function lastdl {
+    fname="$(ls -t ~/Downloads/ | head -n 1)"
+    echo "$HOME/Downloads/$fname"
 }
+
+function lastdesk {
+    fname="$(ls -t ~/Desktop/ | head -n 1)"
+    echo "$HOME/Desktop/$fname"
+}
+
 
 function colors {
     for i in {0..255} ; do

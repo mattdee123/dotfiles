@@ -19,4 +19,4 @@ set timezone='us/eastern';
 
 
 \timing
-\unset quiet
+\unset QUIET

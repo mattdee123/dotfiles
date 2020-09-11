@@ -94,9 +94,8 @@ au FileType go nmap <leader>ml <Plug>(go-metalinter)
 au FileType go nmap <leader>n <Plug>(go-info)
 " also :GoImpl to generate interfaces
 "
-nmap <leader>a :Ack<Space>
-
-au BufNewFile,BufRead *.aurora setlocal ft=python
+"
+let g:go_highlight_diagnostic_errors = 0
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -104,3 +103,6 @@ endif
 if executable('rg')
   let g:ackprg = 'rg --vimgrep'
 endif
+
+nnoremap <leader>l :call system('codelink ' . expand('%:p') . ' ' . line('.'))<CR><CR>
+vnoremap <leader>l :<C-U>call system('codelink ' . expand('%:p') . ' ' . line("'<") . ' ' . line("'>"))<CR><CR>
