@@ -78,6 +78,11 @@ hi StatusLine ctermbg=white ctermfg=black
 set relativenumber
 
 set completeopt-=preview
+set completeopt+=menuone
+set completeopt+=noselect
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#minimum_prefix_length = 1
+autocmd FileType go let b:vcm_tab_complete = "omni"
 
 " Go stuff
 au FileType go nmap <leader>b :GoTestCompile<CR>
@@ -106,3 +111,9 @@ endif
 
 nnoremap <leader>l :call system('codelink ' . expand('%:p') . ' ' . line('.'))<CR><CR>
 vnoremap <leader>l :<C-U>call system('codelink ' . expand('%:p') . ' ' . line("'<") . ' ' . line("'>"))<CR><CR>
+
+
+let g:go_fmt_options = {
+  \ 'goimports': '-local gitlab.com/levelbenefits/level/go',
+  \ }
+

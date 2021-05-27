@@ -143,7 +143,9 @@ alias localrc="vim ~/.bashrc.local"
 alias vimrc="vim ~/.vimrc"
 alias reload="source ~/.bashrc"
 alias sml="rlwrap sml"
-alias v="vim -c ':FZF'"
+alias v='vim "$(FZF)"'
+alias vu='vim "$(ag -ug "" | FZF)"'
+#alias v="vim -c ':FZF'"
 alias expand='cd "$(pwd -P)"'
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
@@ -179,3 +181,33 @@ function colors {
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 true
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+function dead_branches() {
+    git fetch -p  # check if remote branches are deleted
+    git branch --format '%(upstream:track,nobracket)%(upstream:trackshort):%(refname:short)' | grep '^\(gone\)\?:' | cut -d : -f 2
+}
+
+function delete_dead_branches() {
+    for brname in $(dead_branches)
+    do
+        read -r -p "delete branch: $brname? [y/N] " response
+        if [ "$response" = 'y' ]
+        then
+            git branch -D $brname
+        fi
+    done
+}
+
+function delete_deploy_branches() {
+    for brname in $(git branch | grep '  deploy')
+    do
+        read -r -p "delete branch: $brname? [y/N] " response
+        if [ "$response" = 'y' ]
+        then
+            git branch -D $brname
+        fi
+    done
+}
+
