@@ -1,3 +1,7 @@
+"let g:go_debug=['lsp']
+"let g:go_gopls_options = ['-remote=auto', '-remote.debug=:0', '-remote.logfile=auto', '-logfile=auto', '-rpc.trace']
+"let g:go_gopls_options = ['-debug=:0', '-remote=unix;/tmp/gopls-daemon-socket', '-logfile=auto', '-rpc.trace']
+
 execute pathogen#infect()
 " THIS MIGHT BE DANGEROUS :(
 set noswapfile
@@ -9,7 +13,7 @@ let mapleader=","
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
-" Switch syntax highlighting on
+"" Switch syntax highlighting on
 syntax on
 
 " Enable file type detection and do language-dependent indenting.
@@ -23,7 +27,7 @@ set linebreak
 set scrolloff=3
 set tildeop
 if exists("&breakindent")
-    set breakindent
+   "set breakindent
 endif
 
 " Make searching better
@@ -44,7 +48,7 @@ set mouse=a
 set ignorecase
 set smartcase
 
-"set textwidth=85
+set textwidth=0
 "set colorcolumn=+1
 "highlight ColorColumn ctermbg=4
 
@@ -77,12 +81,12 @@ hi StatusLine ctermbg=white ctermfg=black
 
 set relativenumber
 
+" Completion
 set completeopt-=preview
 set completeopt+=menuone
 set completeopt+=noselect
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#minimum_prefix_length = 1
-autocmd FileType go let b:vcm_tab_complete = "omni"
+inoremap <expr> <TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-n>" : "\<C-x>\<C-o>"
 
 " Go stuff
 au FileType go nmap <leader>b :GoTestCompile<CR>
@@ -102,18 +106,7 @@ au FileType go nmap <leader>n <Plug>(go-info)
 "
 let g:go_highlight_diagnostic_errors = 0
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-if executable('rg')
-  let g:ackprg = 'rg --vimgrep'
-endif
-
 nnoremap <leader>l :call system('codelink ' . expand('%:p') . ' ' . line('.'))<CR><CR>
 vnoremap <leader>l :<C-U>call system('codelink ' . expand('%:p') . ' ' . line("'<") . ' ' . line("'>"))<CR><CR>
 
-
-let g:go_fmt_options = {
-  \ 'goimports': '-local gitlab.com/levelbenefits/level/go',
-  \ }
-
+set regexpengine=0

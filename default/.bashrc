@@ -78,10 +78,11 @@ ps1() {
 }
 
 PROMPT_COMMAND=ps1
-export PS1=">> "
+export PS1="# "
 export PS2='> '
 export PS3='#? '
 export PS4='+ '
+alias noprompt="unset PROMPT_COMMAND && export PS1='# '"
 
 ##### Aliases
 alias ..="cd .."
@@ -115,6 +116,7 @@ alias gap='git add $(git rev-parse --show-toplevel); git commit; git push'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gc='git commit -m'
 alias gpr='git pull --rebase'
+alias pull='git pull'
 alias ga='git add -u .'
 alias gca='git commit --amend'
 function squash {
@@ -150,6 +152,7 @@ alias expand='cd "$(pwd -P)"'
 alias sz="du -hs"
 alias tex="pdflatex *.tex"
 alias pdf="open *.pdf"
+alias ag='ag --width=200 --hidden'
 function tosql {
     awk "\$0=\"'\"\$0\"',\""
 }
